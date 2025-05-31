@@ -7,7 +7,7 @@ import shutil
 import logging
 from typing import List, Optional, Dict, Any
 import time
-from download_noaa_grids import NOAAGrids, Config
+from ___download_noaa_grids import NOAAGrids, Config
 import sys
 
 # Set an alternative port via environment variable (before importing streamlit)
@@ -28,7 +28,7 @@ def setup_page():
     
     st.title("NOAA Atlas 14 Grids Miner")
     st.markdown("""
-    This tool downloads, processes, and mosaics NOAA Atlas 14 precipitation grids for a given project area.
+    This tool downloads, processes, and mosaics NOAA Atlas 14 precipitation grids (partial duration series) for a given project area.
     Upload the required shapefiles, select your options, and click Process to begin.
     """)
 
@@ -79,7 +79,23 @@ def get_user_inputs() -> Dict[str, Any]:
             use_builtin_states = st.checkbox(
                 "Use built-in NOAA Zones shapefile (US_States folder)",
                 value=True,
-                help="Use the NOAA zones shapefile included in the US_States folder"
+                help=(
+                    "Use the NOAA Atlas 14 zones shapefile included in the US_States folder. "
+                    "NOAA Atlas 14 divides the United States and territories into zones, each corresponding to a published volume:\n\n"
+                    "• Volume 1: Semiarid Southwest (sw)\n"
+                    "• Volume 2: Ohio River Basin and Surrounding States (orb)\n"
+                    "• Volume 3: Puerto Rico and the U.S. Virgin Islands (pr)\n"
+                    "• Volume 4: Hawaiian Islands (hi)\n"
+                    "• Volume 5: Selected Pacific Islands (see sub-regions)\n"
+                    "• Volume 6: California (sw)\n"
+                    "• Volume 7: Alaska (ak)\n"
+                    "• Volume 8: Midwestern States (mw)\n"
+                    "• Volume 9: Southeastern States (se)\n"
+                    "• Volume 10: Northeastern States (ne)\n"
+                    "• Volume 11: Texas (tx)\n"
+                    "• Volume 12: Interior Northwest (inw)\n\n"
+                    "Select this option to use the built-in shapefile for these NOAA Atlas 14 zones."
+                )
             )
             
             states_files = None
@@ -95,9 +111,13 @@ def get_user_inputs() -> Dict[str, Any]:
             
             # Option to use built-in shapefile
             use_builtin_project = st.checkbox(
-                "Use built-in Project Area shapefile (Project_Area folder)",
-                value=True,
-                help="Use the project area shapefile included in the Project_Area folder"
+                "Use built-in Project Area shapefile)",
+                value=False,
+                help=(
+                    "Use the project area shapefile included in the Project_Area folder. "
+                    "This is a sample shapefile provided for testing the app. "
+                    "If you have a defined project area, please upload your own shapefile."
+                )
             )
             
             prj_area_files = None
@@ -314,14 +334,13 @@ def main():
         - Wait for processing to complete
         - Results will be saved to your base directory
         """)
-        
+
+
         st.markdown("---")
-        st.markdown("### About")
+        st.markdown("### References:")
         st.markdown("""
-        This tool automates downloading NOAA Atlas 14 precipitation frequency grids.
-        
-        For more information, visit:  
-        [NOAA Atlas 14 Website](https://hdsc.nws.noaa.gov/hdsc/pfds/index.html)
+        1. [FEMA: 2D Watershed Modeling in HEC-RAS Recommended Practices](https://webapps.usgs.gov/infrm/pubs/211203_HUC8_2D_Watershed_Modeling_Recommendations.pdf)
+        2. [Precipitation Frequency Estimates in GIS Compatible Format](https://hdsc.nws.noaa.gov/pfds/pfds_gis.html)
         """)
     
     # Get user inputs

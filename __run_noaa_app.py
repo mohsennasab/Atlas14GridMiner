@@ -24,11 +24,11 @@ def main():
     
     # Find python and app path
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    app_file = os.path.join(current_dir, "streamlit_noaa_ui.py")
+    app_file = os.path.join(current_dir, "___streamlit_noaa_ui.py")
     
     if not os.path.isfile(app_file):
         print(f"Error: Could not find {app_file}")
-        print("Please make sure streamlit_noaa_ui.py is in the same directory as this script.")
+        print("Please make sure ___streamlit_noaa_ui.py is in the same directory as this script.")
         input("Press Enter to exit...")
         return
     
@@ -46,7 +46,7 @@ def main():
     
     try:
         # Direct import and run approach
-        print("Running streamlit_noaa_ui.py directly...")
+        print("Running s___streamlit_noaa_ui.py directly...")
         
         # Change to the directory of the app file for proper path resolution
         original_dir = os.getcwd()
