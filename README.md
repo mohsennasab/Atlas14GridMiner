@@ -38,12 +38,12 @@ Atlas14GridMiner uses pixi for environment management:
 pixi install
 
 # Run the application
-pixi run python run_noaa_app_alt.py
+pixi run python run_noaa_app.py
 ```
 
 ## Usage
 
-1. **Launch the application**: Run `python run_noaa_app_alt.py`
+1. **Launch the application**: Run `python run_noaa_app.py`
 2. **Configure inputs**:
    - Enter a base directory for outputs
    - Select or upload required shapefiles
@@ -79,7 +79,7 @@ This tool automates the process of:
 
 If you encounter socket permission errors when running the Streamlit app:
 
-1. Try the alternate port version: `python run_noaa_app_alt.py`
+1. Try the alternate port version: `python run_noaa_app.py`
 2. Run with administrator privileges if prompted
 3. Ensure no other applications are using port 8502
 
