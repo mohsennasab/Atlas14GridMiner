@@ -1,4 +1,7 @@
 /__pycache__/
+/NOAA_grids_mosaic/
+/NOAA_grids/
+/.pixi/
 # pixi environments
 .pixi
 *.egg-info
