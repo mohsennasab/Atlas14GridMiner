@@ -86,7 +86,7 @@ class NOAAProcessor:
     
     @staticmethod
     def find_noaa_zones(prj_area_shp_path: str, states_shp_path: str) -> List[str]:
-        """Find intersecting NOAA zones with improved error handling"""
+        """Find intersecting NOAA zones with improved error handling and CRS standardization"""
         try:
             with warnings.catch_warnings():
                 warnings.filterwarnings('ignore', category=UserWarning)
@@ -96,12 +96,33 @@ class NOAAProcessor:
             logging.error(f"Error reading shapefiles: {e}")
             raise
 
-        prj_area_shp_to_state_crs = prj_area_shp.to_crs(states_shp.crs)
-        prj_area_union = prj_area_shp_to_state_crs.geometry.unary_union
-        # prj_area_union = prj_area_shp_to_state_crs.geometry.union_all()
+        # Target CRS: NAD83 (EPSG:4269) to match NOAA rasters and zones
+        target_crs = "EPSG:4269"
         
+        # Log original CRS information
+        logging.info(f"NOAA Zones shapefile CRS: {states_shp.crs}")
+        logging.info(f"Project Area shapefile original CRS: {prj_area_shp.crs}")
+        
+        # Ensure NOAA zones shapefile is in target CRS
+        if states_shp.crs != target_crs:
+            logging.info(f"Converting NOAA zones from {states_shp.crs} to {target_crs}")
+            states_shp = states_shp.to_crs(target_crs)
+        
+        # Convert project area to target CRS (NAD83 EPSG:4269)
+        if prj_area_shp.crs != target_crs:
+            logging.info(f"Converting Project Area shapefile from {prj_area_shp.crs} to {target_crs}")
+            prj_area_shp = prj_area_shp.to_crs(target_crs)
+        else:
+            logging.info(f"Project Area shapefile already in target CRS: {target_crs}")
+        
+        # Create union of project area geometries
+        prj_area_union = prj_area_shp.geometry.unary_union
+        
+        # Find intersecting NOAA zones
         qry = states_shp.sindex.query(prj_area_union, predicate="intersects")
         zone_list = states_shp.iloc[qry]['NOAA14_cd'].unique().tolist()
+        
+        logging.info(f"Found intersecting NOAA zones: {zone_list}")
         
         return [z for z in zone_list if z != "Atlas2"]
 

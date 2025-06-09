@@ -115,13 +115,16 @@ def get_user_inputs() -> Dict[str, Any]:
             states_files = None
             if not use_builtin_states:
                 states_files = st.file_uploader(
-                    "Upload ALL files for the NOAA zones shapefile (.shp, .shx, .dbf required, .prj optional)",
+                    "Upload ALL files for the NOAA zones shapefile (.shp, .shx, .dbf, .prj required)",
                     type=["shp", "shx", "dbf", "prj"], 
                     accept_multiple_files=True,
                     help="These files define the NOAA Atlas 14 zones"
                 )
             
-            st.markdown("##### Project Area Shapefile")
+            st.markdown(
+                "##### Project Area Shapefile",
+                help="The uploaded shapefile should contain a single polygon feature representing your project area with an optional buffer. Do not upload a shapefile with multiple polygons."
+            )
             
             # Option to use built-in shapefile
             use_builtin_project = st.checkbox(
@@ -137,7 +140,7 @@ def get_user_inputs() -> Dict[str, Any]:
             prj_area_files = None
             if not use_builtin_project:
                 prj_area_files = st.file_uploader(
-                    "Upload ALL files for your project area shapefile (.shp, .shx, .dbf required, .prj optional)",
+                    "Upload ALL files for your project area shapefile (.shp, .shx, .dbf, and .prj required)",
                     type=["shp", "shx", "dbf", "prj"], 
                     accept_multiple_files=True,
                     help="These files define your project area"
