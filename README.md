@@ -12,9 +12,8 @@ This application automates the complex process of obtaining precipitation freque
 - 🚀 **Automated Grid Retrieval**: Downloads precipitation grids directly from NOAA servers  
 - 🗺️ **Smart Zone Detection**: Automatically identifies intersecting NOAA Atlas 14 zones for your project area  
 - 🧩 **Grid Mosaicking**: Seamlessly combines grids across zone boundaries using maximum value method  
-- 📊 **Confidence Intervals**: Generates 90% confidence interval grids for 100-year events  
+- 📊 **Confidence Intervals**: Generates 100-year + & - confidence interval grids for 100-year events  
 - 🖥️ **Dual Interface**: Both web-based GUI and command-line interfaces available  
-- ⚡ **Parallel Processing**: Multi-threaded downloads and processing for improved performance  
 - 📁 **Organized Output**: Well-structured output folders with clear naming conventions  
 
 ## 🛠️ Installation
@@ -22,7 +21,7 @@ This application automates the complex process of obtaining precipitation freque
 ### Prerequisites
 
 - Python 3.11+  
-- Pixi package manager (recommended) or conda/pip  
+- [Pixi package manager (recommended)](https://pixi.sh/latest/)  
 
 ### Using Pixi (Recommended)
 
@@ -31,14 +30,6 @@ git clone <repository-url>
 cd NOAA-Atlas-14-Grids-Miner
 pixi install
 pixi shell
-```
-
-### Using Conda/Pip
-
-```bash
-conda create -n noaa-grids python=3.11
-conda activate noaa-grids
-pip install streamlit>=1.25.0 requests>=2.32.3 geopandas>=1.0.1 rasterio>=1.4.3 numpy>=2.2.4 tqdm>=4.67.1 scipy>=1.15.2 gdal>=3.10.2
 ```
 
 ## 🚀 Usage
@@ -60,14 +51,6 @@ Open your browser and navigate to `http://localhost:8502`
 - Enable/disable confidence intervals  
 
 Click **"Process NOAA Grids"** and monitor progress
-
-### Command Line Interface
-
-```bash
-python download_noaa_grids.py
-```
-
-Follow the interactive prompts to configure your processing parameters.
 
 ## 📂 Input Requirements
 
@@ -115,7 +98,11 @@ Base_Directory/
 ```
 
 ### File Naming Convention
-
+#### Downloaded Rasters
+- `XXyrYYa.asc`: Precipitation depth (XX = return period, YY = duration)  
+- `XXyrYYa_plus.asc`: Upper 84th percentile confidence interval  
+- `XXyrYYa_minus.asc`: Lower 16th percentile confidence interval  
+#### Mosaiced Rasters
 - `combXXyrYYa.asc`: Precipitation depth (XX = return period, YY = duration)  
 - `combXXyrYYa_plus.asc`: Upper 84th percentile confidence interval  
 - `combXXyrYYa_minus.asc`: Lower 16th percentile confidence interval  
@@ -187,9 +174,8 @@ Contributions are welcome! Please:
 
 ## 🔗 References
 
-- FEMA: 2D Watershed Modeling in HEC-RAS Recommended Practices  
-- NOAA: Precipitation Frequency Estimates in GIS Compatible Format  
-- NOAA Atlas 14 Documentation  
+- [FEMA: 2D Watershed Modeling in HEC-RAS Recommended Practices](https://webapps.usgs.gov/infrm/pubs/211203_HUC8_2D_Watershed_Modeling_Recommendations.pdf)  
+- [NOAA: Precipitation Frequency Estimates in GIS Compatible Format](https://hdsc.nws.noaa.gov/pfds/pfds_gis.html) 
 
 ## 📄 License
 
@@ -202,7 +188,3 @@ Commercial use and redistribution (in part or full, modified or not) are not per
 ### Disclaimer
 
 The software is provided *as is*, without warranty of any kind. The author is not liable for any damages or claims arising from use.
-
----
-
-*Built with ❤️ for the hydrology and water resources community*
