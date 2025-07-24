@@ -57,13 +57,13 @@ Click **"Process NOAA Grids"** and monitor progress
 ### Required Shapefiles
 
 **Project Area Shapefile**: Defines your area of interest  
-- Required: `.shp`, `.shx`, `.dbf`  
-- Optional: `.prj` (recommended for proper CRS handling)  
+- Required: `.shp`, `.shx`, `.dbf`, `.prj`  
 - Will be automatically reprojected to NAD83 (EPSG:4269)  
 
 **NOAA Atlas 14 Zones Shapefile**: Defines NOAA precipitation zones  
 - Included in `US_States/` folder  
-- Custom versions can be uploaded if needed  
+- Custom versions can be uploaded if needed
+- CRS: NAD83 (EPSG:4269)  
 
 ## 🌎 NOAA Atlas 14 Zones Coverage
 
@@ -133,7 +133,7 @@ Base_Directory/
 ├── pixi.toml                  
 ├── .gitignore                 
 ├── US_States/                 
-├── Project_Area/              
+├── Project Area/              
 └── README.md                  
 ```
 
@@ -146,8 +146,7 @@ Base_Directory/
 - App should still launch on `http://localhost:8502`  
 
 **Missing Shapefile Components**  
-- Ensure all required files (`.shp`, `.shx`, `.dbf`) are uploaded  
-- `.prj` recommended for proper coordinate system handling  
+- Ensure all required files (`.shp`, `.shx`, `.dbf`, `.prj`) are uploaded  
 
 **Download Failures**  
 - Automatic retry is built-in  

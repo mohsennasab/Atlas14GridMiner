@@ -128,10 +128,10 @@ def get_user_inputs() -> Dict[str, Any]:
             
             # Option to use built-in shapefile
             use_builtin_project = st.checkbox(
-                "Use built-in Project Area shapefile)",
+                "Use built-in Project Area shapefile",
                 value=False,
                 help=(
-                    "Use the project area shapefile included in the Project_Area folder. "
+                    "Use the project area shapefile included in the Project Area folder. "
                     "This is a sample shapefile provided for testing the app. "
                     "If you have a defined project area, please upload your own shapefile."
                 )
@@ -243,7 +243,7 @@ def validate_inputs(inputs: Dict[str, Any]) -> Dict[str, Any]:
     if inputs["use_builtin_project"]:
         prj_area_shp_path = find_builtin_shapefile("Project Area")
         if not prj_area_shp_path:
-            errors.append("Could not find .shp file in the Project_Area folder")
+            errors.append("Could not find .shp file in the Project Area folder")
     elif not inputs["prj_area_files"]:
         errors.append("Project Area shapefile files are required")
     else:
@@ -257,7 +257,7 @@ def validate_inputs(inputs: Dict[str, Any]) -> Dict[str, Any]:
     if states_shp_path and prj_area_shp_path:
         for shp_path, label in [(states_shp_path, "NOAA Zones"), (prj_area_shp_path, "Project Area")]:
             base = Path(shp_path).with_suffix('')
-            for ext in ['.shp', '.shx', '.dbf']:
+            for ext in ['.shp', '.shx', '.dbf', '.prj']:
                 if not base.with_suffix(ext).exists():
                     errors.append(f"Missing {ext} file for {label} shapefile")
     
