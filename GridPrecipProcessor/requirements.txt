@@ -1,0 +1,20 @@
+# NOAA Atlas 14 Grid Processor - Minimal Requirements
+# Essential packages only for basic functionality
+# Compatible with Python 3.8+
+
+# Core Geospatial Processing
+geopandas>=0.10.0
+rasterio>=1.2.0
+numpy>=1.19.0
+scipy>=1.6.0
+
+# Data Handling
+pandas>=1.3.0
+requests>=2.24.0
+
+# User Interface
+tqdm>=4.50.0
+
+# Note: Built-in modules used by the script:
+# os, time, logging, pathlib, zipfile, re, sys, warnings, json
+# concurrent.futures, dataclasses (Python 3.7+), typing
