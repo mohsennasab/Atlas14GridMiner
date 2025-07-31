@@ -215,7 +215,6 @@ class ToolGUIFramework(ABC):
         st.markdown(f"""
         <div class="main-header">
             <h1>🌧️ {self.tool_name}</h1>
-            <h3>Version {self.tool_version}</h3>
             <p>{self.tool_description}</p>
         </div>
         """, unsafe_allow_html=True)
@@ -378,7 +377,7 @@ class ToolGUIFramework(ABC):
         """Render standardized tool information section"""
         with st.expander("ℹ️ Tool Information", expanded=False):
             st.markdown(f"""
-            ### 🚀 About {self.tool_name}
+            ### About {self.tool_name}
             
             **Version:** {self.tool_version}  
             **Description:** {self.tool_description}
@@ -389,8 +388,12 @@ class ToolGUIFramework(ABC):
             3. Set processing parameters
             4. Click "Start Processing"
             
-            ### 🔗 Documentation
+            ### 🔎 Documentation
             For detailed documentation and examples, visit the project repository.
+            [Atlas14GridMiner Repository](https://github.com/mohsennasab/Atlas14GridMiner/tree/feature/enhanced-v2)
+            
+            ### 💡 References
+            - [NOAA Atlas 14](https://hdsc.nws.noaa.gov/hdsc/pfds/)
             """)
 
 
@@ -418,8 +421,8 @@ class NOAAGridMinerGUI(ToolGUIFramework):
     def __init__(self):
         super().__init__(
             tool_name="NOAA Atlas 14 Grid Miner",
-            tool_version="2.0.0",
-            tool_description="Download and process NOAA precipitation grids for your project area"
+            tool_version="2.0",
+            tool_description="Download and process NOAA Atlas 14 precipitation grids (ASCII) for your project area"
         )
         
         # Import core processing module
