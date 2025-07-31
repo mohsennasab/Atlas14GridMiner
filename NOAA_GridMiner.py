@@ -872,7 +872,7 @@ def get_enhanced_user_input() -> Dict[str, any]:
     if use_builtin in ['', 'y', 'yes']:
         # Use built-in shapefile
         current_dir = Path(__file__).parent
-        states_shp_path = current_dir / "US_States" / "tl_2021_us_state.shp"
+        states_shp_path = current_dir / "support_data" / "US_States" / "tl_2021_us_state.shp"
         if not states_shp_path.exists():
             raise FileNotFoundError(f"Built-in NOAA zones shapefile not found at: {states_shp_path}")
     else:
