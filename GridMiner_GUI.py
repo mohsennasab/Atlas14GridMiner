@@ -389,8 +389,7 @@ class ToolGUIFramework(ABC):
             4. Click "Start Processing"
             
             ### 🔎 Documentation
-            For detailed documentation and examples, visit the project repository.
-            [Atlas14GridMiner Repository](https://github.com/mohsennasab/Atlas14GridMiner/tree/feature/enhanced-v2)
+            For detailed documentation and examples, visit [Atlas14GridMiner Repository](https://github.com/mohsennasab/Atlas14GridMiner/tree/feature/enhanced-v2)
             
             ### 💡 References
             - [NOAA Atlas 14](https://hdsc.nws.noaa.gov/hdsc/pfds/)
