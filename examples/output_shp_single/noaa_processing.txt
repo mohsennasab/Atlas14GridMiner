@@ -1,0 +1,107 @@
+NOAA ATLAS 14 GRID PROCESSOR - QA/QC SUMMARY
+============================================================
+
+USER CONFIGURATION:
+------------------------------
+Base Directory: C:\Users\daniel.kang\Desktop\Tools\PrecipDSS\Atlas14GridMiner\Atlas14GridMiner\tests\output_v2-3_shp_single
+Project Area Shapefile: Volume-based selection
+Volume Codes: orb
+Series Types: BOTH
+Events: 100
+Durations: 24h
+Confidence Intervals (100-yr): True
+
+PROCESSING SUMMARY:
+------------------------------
+Total Processing Time: 0h 0m 11.2s
+Total Operations: 26
+Successful Operations: 13
+Failed Operations: 0
+
+DOWNLOAD SUMMARY:
+------------------------------
+Total Downloads: 6
+Successful Downloads: 6
+Failed Downloads: 0
+
+DATA SOURCES:
+------------------------------
+SUCCESS: https://hdsc.nws.noaa.gov/pub/hdsc/data/orb/orb100yr24ha.zip
+SUCCESS: https://hdsc.nws.noaa.gov/pub/hdsc/data/orb/orb100yr24ha_ams.zip
+SUCCESS: https://hdsc.nws.noaa.gov/pub/hdsc/data/orb/orb100yr24hal.zip
+SUCCESS: https://hdsc.nws.noaa.gov/pub/hdsc/data/orb/orb100yr24hal_ams.zip
+SUCCESS: https://hdsc.nws.noaa.gov/pub/hdsc/data/orb/orb100yr24hau.zip
+SUCCESS: https://hdsc.nws.noaa.gov/pub/hdsc/data/orb/orb100yr24hau_ams.zip
+
+OUTPUT LOCATIONS:
+------------------------------
+Base Directory: C:\Users\daniel.kang\Desktop\Tools\PrecipDSS\Atlas14GridMiner\Atlas14GridMiner\tests\output_v2-3_shp_single
+
+BASIC STATISTICS:
+------------------------------
+PDS Grids: C:\Users\daniel.kang\Desktop\Tools\PrecipDSS\Atlas14GridMiner\Atlas14GridMiner\tests\output_v2-3_shp_single\NOAA_grids_PDS
+
+PDS INDIVIDUAL GRID STATISTICS:
+  orb100yr24ha.asc:
+    Min: 4157.00
+    Max: 14295.00
+    Mean: 7146.27
+    Std Dev: 1463.44
+
+  orb100yr24ha_minus.asc:
+    Min: 3988.00
+    Max: 13414.00
+    Mean: 6721.52
+    Std Dev: 1339.88
+
+  orb100yr24ha_plus.asc:
+    Min: 4333.00
+    Max: 15233.00
+    Mean: 7598.67
+    Std Dev: 1600.43
+
+  orb100yr24hal.asc:
+    Min: 3881.00
+    Max: 12868.00
+    Mean: 6457.85
+    Std Dev: 1265.69
+
+  orb100yr24hau.asc:
+    Min: 4411.00
+    Max: 15583.00
+    Mean: 7757.66
+    Std Dev: 1637.52
+
+AMS Grids: C:\Users\daniel.kang\Desktop\Tools\PrecipDSS\Atlas14GridMiner\Atlas14GridMiner\tests\output_v2-3_shp_single\NOAA_grids_AMS
+
+AMS INDIVIDUAL GRID STATISTICS:
+  orb100yr24ha_ams.asc:
+    Min: 4140.00
+    Max: 14237.00
+    Mean: 7117.20
+    Std Dev: 1457.58
+
+  orb100yr24ha_ams_minus.asc:
+    Min: 3971.00
+    Max: 13360.00
+    Mean: 6694.13
+    Std Dev: 1334.52
+
+  orb100yr24ha_ams_plus.asc:
+    Min: 4315.00
+    Max: 15171.00
+    Mean: 7567.79
+    Std Dev: 1594.02
+
+  orb100yr24hal_ams.asc:
+    Min: 3865.00
+    Max: 12816.00
+    Mean: 6431.53
+    Std Dev: 1260.63
+
+  orb100yr24hau_ams.asc:
+    Min: 4393.00
+    Max: 15520.00
+    Mean: 7726.13
+    Std Dev: 1630.97
+
