@@ -1,0 +1,8 @@
+2025-08-07 16:46:28,616 - ERROR - Fatal error: Invalid durations. Valid options: frozenset({'60m', '12h', '15m', '02h', '24h', '10m', '30m', '06h', '05m', '03h'})
+Traceback (most recent call last):
+  File "c:\Users\daniel.kang\Desktop\Tools\PrecipDSS\Atlas14GridMiner\Atlas14GridMiner\NOAA_GridMiner.py", line 1014, in main
+    inputs = get_enhanced_user_input()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\daniel.kang\Desktop\Tools\PrecipDSS\Atlas14GridMiner\Atlas14GridMiner\NOAA_GridMiner.py", line 927, in get_enhanced_user_input
+    raise ValueError(f"Invalid durations. Valid options: {Config.VALID_DURATIONS}")
+ValueError: Invalid durations. Valid options: frozenset({'60m', '12h', '15m', '02h', '24h', '10m', '30m', '06h', '05m', '03h'})

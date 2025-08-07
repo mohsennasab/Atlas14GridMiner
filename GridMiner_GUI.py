@@ -407,7 +407,7 @@ class NOAAGridMinerConfig:
         self.TOOL_ROOT = Path(__file__).parent
         self.SUPPORT_DATA = self.TOOL_ROOT / "support_data"
         self.US_STATES_PATH = self.SUPPORT_DATA / "US_States" / "tl_2021_us_state.shp"
-        self.DEFAULT_OUTPUT = self.TOOL_ROOT / "output"
+        self.DEFAULT_OUTPUT = self.TOOL_ROOT / "ASC_Output"
         
         # Create directories
         for directory in [self.SUPPORT_DATA, self.DEFAULT_OUTPUT]:
